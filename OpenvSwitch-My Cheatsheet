@@ -1,0 +1,31 @@
+service openvswitch-switch restart
+systemctl status openvswitch.service
+
+
+ovs-vsctl del-br LAN
+virsh net-undefine
+
+Delete a Bridge
+ip link set dev br_v103 down
+brctl delbr br_v101
+ovs-vsctl del-port ovslan eno2
+
+Add a Bridge
+ovs-vsctl add-br 
+ovs-vsctl add-port ovslan eno2
+
+brctl addbr outside
+brctl addif outside eno2
+
+virsh net-destroy FuelLAN
+virsh net-define FuelLAN
+virsh net-start FuelLAN
+virsh net-edit FuelLAN
+virsh net-autostart FuelLAN
+
+
+ovs-dpctl dump-flows
+ovs-dpctl show
+
+ovsdb-tool show-log
+
