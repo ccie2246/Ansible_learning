@@ -40,3 +40,5 @@ ip link set he-ipv6 up
 ip addr add 2001:470:c:133e::2/64 dev he-ipv6
 ip route add ::/0 dev he-ipv6
 ip -f inet6 addr
+
+show ipv6 neighbors
