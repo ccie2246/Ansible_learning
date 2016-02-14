@@ -1,2 +1,2 @@
-# Ansible_learning
-Ansible_learning
+# ansible-template
+Example for using Ansible for Network Configuration Templates
